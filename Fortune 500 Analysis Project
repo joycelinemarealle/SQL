@@ -65,4 +65,13 @@ AND healthcare_benefits=1
 GROUP BY industry
 ORDER BY COUNT(company_name) ASC
 
+#Created a new column using a CASE statement to assigns whether the maternity leave weeks a company provides is excellent, good or okay. Grouped so that the highest maternity leave is showed first
+#xxx
+SELECT company_name,maternity_leave_weeks
+CASE WHEN maternity_leave_weeks >= 12 THEN "excellent"
+WHEN maternity_leave_weeks >=8 THEN "good"
+ELSE "okay"
+END AS "ratings_of_maternity_leave"
+FROM fortune_companies
+GROUP BY maternity_leave_weeks
 ;
