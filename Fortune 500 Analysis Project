@@ -55,3 +55,14 @@ VALUES
     ('Company II', 'Telecommunications', 110.5, 2000, 1, 21, 12, 4.9),
     ('Company JJ', 'Manufacturing', 370.0, 3100, 1, 20, 12, 7.6),
     ('Company KK', 'Healthcare', 150.2, 3400, 0, 16, 8, 5.3);
+
+#Aggregate data to count the number of companies in the category industry with paid time of >=10 and maternityleave weeks >= 10 weeks and with health care benefit
+SELECT COUNT(company_name), industry
+FROM fortune_companies
+WHERE paid_time_off_days >= 10
+AND maternity_leave_weeks >= 10
+AND healthcare_benefits=1
+GROUP BY industry
+ORDER BY COUNT(company_name) ASC
+
+;
