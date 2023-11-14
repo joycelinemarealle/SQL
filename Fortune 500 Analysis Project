@@ -75,3 +75,11 @@ END AS "ratings_of_maternity_leave"
 FROM fortune_companies
 GROUP BY maternity_leave_weeks
 ;
+
+#Filter out companies with a revenue > 300 and have health care benefits
+
+SELECT *
+FROM fortune_companies
+WHERE revenue >300
+AND healthcare_benefits =1
+;
