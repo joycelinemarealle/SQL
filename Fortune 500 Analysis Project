@@ -98,3 +98,8 @@ FROM fortune_companies
 GROUP by industry
 HAVING avg_maternity_leave_weeks > 8
 ;
+
+#Aggregate data to identiy company with Maximum revenue
+SELECT * , MAX (revenue)
+FROM fortune_companies
+;
