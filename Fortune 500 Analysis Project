@@ -83,3 +83,18 @@ FROM fortune_companies
 WHERE revenue >300
 AND healthcare_benefits =1
 ;
+
+
+# Select the industry and the number of rows in fortune_companies table and grouped by industry categories. Identified number of companies per industry and grouped per industry
+SELECT industry, COUNT (*)
+FROM fortune_companies
+GROUP BY industry
+;
+
+#Categorized companies per industry using GROUP BY and HAVING statement to select number of companies the condition of having avg maternity leave weeks > 8  
+AVG (maternity_leave_weeks) AS avg_maternity_leave_weeks
+SELECT industry, ROUND( AVG( maternity_leave_weeks))  AS avg_maternity_leave_weeks
+FROM fortune_companies
+GROUP by industry
+HAVING avg_maternity_leave_weeks > 8
+;
