@@ -103,3 +103,12 @@ HAVING avg_maternity_leave_weeks > 8
 SELECT * , MAX (revenue)
 FROM fortune_companies
 ;
+
+#Created a new column using the CASE statement to asign maternity leave weeks provided is good, excellent or okay and use GROUP BY statement to categorized identify number of companies by maternity leave, excellent, good and okay
+SELECT CASE WHEN maternity_leave_weeks >= 12 THEN "excellent"
+WHEN maternity_leave_weeks >=8 THEN "good"
+ELSE "okay"
+END AS "ratings_of_maternity_leave", COUNT (*) AS number_of_companies
+FROM fortune_companies
+GROUP BY ratings_of_maternity_leave 
+;
