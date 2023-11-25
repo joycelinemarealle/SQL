@@ -1,0 +1,89 @@
+SELECT *
+FROM BIT_DB.CUSTOMERS
+WHERE length(order_id) = 6
+AND order_id <> 'Order ID'
+;
+
+SELECT *
+FROM BIT_DB.JanSales
+;
+
+/*How many orders were placed in January?
+Filter out blanks and ORDER ID in orderID
+Only show lenght(orderID ) =6
+*/
+SELECT COUNT(orderID)
+FROM BIT_DB.JanSales
+WHERE length(orderID)=6
+AND orderID <> 'Order ID'
+
+;
+
+/*How many of those orders were for an iPhone?*/
+
+SELECT COUNT(orderID)
+FROM BIT_DB.JanSales
+WHERE length(orderID) =6
+AND orderID <> 'Order ID'
+AND Product='iPhone'
+;
+
+/*Select the customer account numbers for all the orders that were placed in February.
+Filter out data to only include lenght(orderID)=6 and not equal to Order ID
+USe inner join to return account numbers of customers who made purchases in February*/
+
+SELECT *
+FROM BIT_DB.FebSales
+WHERE length(orderID)=6
+AND orderID <> 'Order ID'
+;
+
+SELECT*
+FROM BIT_DB.customers
+WHERE length(order_id)=6
+AND order_id <> 'Order ID'
+;
+
+SELECT DISTINCT customers.acctnum
+FROM BIT_DB.customers customers
+INNER JOIN BIT_DB.FebSales sales
+ON customers.order_id = sales.orderID
+WHERE length( customers.order_id) =6
+AND customers.order_id <> 'Order ID'
+ORDER BY customers.order_id ASC
+;
+
+
+/*Which product was the cheapest one sold in January, and what was the price? */
+
+SELECT distinct Product, MIN(price)
+FROM BIT_DB.JanSales
+GROUP BY Product,price
+ORDER BY price 
+LIMIT 1
+
+;
+-- OR --
+
+SELECT distinct product, price
+FROM BIT_DB.JanSales Jan
+WHERE price IN (SELECT min(price) FROM BIT_DB.JanSales)
+;
+
+/* What is the total revenue for each product sold in January?*/
+SELECT product,price,SUM( Quantity)* price as Revenue
+FROM BIT_DB.JanSales
+WHERE length(orderID)= 6
+AND orderID <> 'Order ID'
+AND Product IS NOT NULL
+AND Product <> 'Product'
+GROUP BY product, price 
+ORDER BY Revenue ASC
+;
+
+/* Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?*/
+SELECT product, SUM(Quantity), SUM (quantity) * price as total_revenue
+FROM BIT_DB.FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY product,price
+;
