@@ -66,11 +66,13 @@ LIMIT 1
 -- OR --
 
 SELECT distinct product, price
+
 FROM BIT_DB.JanSales Jan
 WHERE price IN (SELECT min(price) FROM BIT_DB.JanSales)
 ;
 
 /* What is the total revenue for each product sold in January?*/
+
 SELECT product,price,SUM( Quantity)* price as Revenue
 FROM BIT_DB.JanSales
 WHERE length(orderID)= 6
@@ -82,8 +84,20 @@ ORDER BY Revenue ASC
 ;
 
 /* Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?*/
+
 SELECT product, SUM(Quantity), SUM (quantity) * price as total_revenue
 FROM BIT_DB.FebSales
 WHERE location = '548 Lincoln St, Seattle, WA 98101'
 GROUP BY product,price
+;
+
+/*How many customers ordered more than 2 products at a time in February, and what was the average amount spent for those customers?*/
+
+SELECT COUNT(distinct customers.acctnum),AVG(quantity*price)
+FROM BIT_DB.FebSales
+LEFT JOIN BIT_DB.customers
+ON FebSales.orderID = customers.order_id
+WHERE FebSales.Quantity > 2
+AND length(orderID) = 6
+AND orderid <> 'OrderID'
 ;
