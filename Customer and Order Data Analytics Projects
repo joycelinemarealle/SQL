@@ -154,3 +154,26 @@ ON customers.order_id - Febsales.orderID
 WHERE length(orderid) = 6 
 AND orderid <> 'Order ID'
 ;
+
+
+/*Which product brought in the most revenue in January and how much revenue did it bring in total?*/
+
+SELECT Product, SUM( Quantity * Price)  as Revenue 
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY Product
+ORDER BY Revenue DESC
+LIMIT 1
+;
+--- OR -------- If products have similar price-----------
+/*Which product brought in the most revenue in January and how much revenue did it bring in total?*/
+
+SELECT Product, SUM(Quantity) *Price  as Revenue 
+FROM BIT_DB.JanSales
+WHERE length(orderid) = 6 
+AND orderid <> 'Order ID'
+GROUP BY Product
+ORDER BY Revenue DESC
+LIMIT 1
+;
