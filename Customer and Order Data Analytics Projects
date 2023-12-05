@@ -101,3 +101,18 @@ WHERE FebSales.Quantity > 2
 AND length(orderID) = 6
 AND orderid <> 'OrderID'
 ;
+
+
+SELECT *
+FROM BIT_DB.JanSales
+;
+
+SELECT location, COUNT(orderID)
+FROM BIT_DB.JanSales
+WHERE length(orderID) =6
+AND orderID <> 'Order ID'
+AND location LIKE '%[NY]%'
+GROUP BY orderID
+HAVING Count(orderID) >=3 
+;
+
