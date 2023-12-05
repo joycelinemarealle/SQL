@@ -102,7 +102,7 @@ AND length(orderID) = 6
 AND orderid <> 'OrderID'
 ;
 
-
+/*Which locations in New York received at least 3 orders in January, and how many orders did they each receive?*/
 SELECT *
 FROM BIT_DB.JanSales
 ;
