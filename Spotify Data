@@ -78,7 +78,7 @@ GROUP BY artist_name
 ORDER BY AVG (danceability) DESC
 ;
 
-/*how many times an artist appeared in the SPotify list/
+/*how many times an artist appeared in the SPotify list */
 SELECT distinct artist_name, COUNT ( id) 
 FROM BIT_DB.Spotifydata
 GROUP BY artist_name
