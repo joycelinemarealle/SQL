@@ -1,3 +1,9 @@
+
+#For this project, I obtained Spotify data from Kaggle, establishing a structured table to seamlessly integrate and organize the dataset. 
+#Subsequently, I conducted in-depth analytics on the Spotify data using SQL to derive valuable insights and patterns. 
+#This process allowed for a comprehensive examination of the dataset, paving the way for a more informed and data-driven approach in understanding Spotify's dynamics.
+
+
 CREATE TABLE BIT_DB.Spotifydata(
 id integer PRIMARY KEY,
 artist_name vachar NOT NULL,
@@ -18,6 +24,10 @@ tempo decimal (6,3) NOT NULL,
 duration_ms integer NOT NULL,
 time_signature integer NOT NULL)
 ;
+
+
+#Then I inserted the Spotify data. csv into the newly created table in the database
+#Next I analyzed the data using the following SQL 
 
 SELECT *
 FROM BIT_DB.Spotifydata
