@@ -1,4 +1,4 @@
-/*  Use common table expression (CTE) to query data */
+/*  Use window functions and common table expressions (CTE) */
 
 CREATE TABLE BIT_DB.CityBikeLanes (
 id integer primary key,
@@ -103,3 +103,13 @@ ORDER BY rating DESC
 ;
 
 -- THE CODE ABOVE IS A SQL QUERY THAT SELECTS FROM THE CTE --
+
+
+--USING WINDOW FUNCTION--
+
+SELECT street, safetyrating,AVG(safetyrating) OVER (PARTITION BY street) as "Average_safety_rating",
+CASE WHEN AVG(safetyrating) OVER (PARTITION BY street) >=4 THEN "Leave As-Is"
+    WHEN AVG(safetyrating) OVER (PARTITION BY street) <2.5 THEN "Remove"
+    ELSE "Improvements Needed"
+    END AS "Recommendation"
+FROM CityBikeLanes
