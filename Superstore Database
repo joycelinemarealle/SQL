@@ -1,4 +1,6 @@
-
+#Designed and managed a 'superstore' SQL database, detailing product categories, pricing, and stock. 
+Analyzed pricing strategies and inventory levels using SQL queries to derive 
+maximum, minimum, and average price statistics, alongside category-based inventory assessments.
 
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
