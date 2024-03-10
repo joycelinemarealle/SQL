@@ -6,6 +6,7 @@ FROM chinook.customers
 WHERE Country <> 'USA'
 ;
 
+
 ---#2-----
 /*Show only the Customers from Brazil.*/
 SELECT *
