@@ -4,6 +4,7 @@ WHERE length(order_id) = 6
 AND order_id <> 'Order ID'
 ;
 
+
 SELECT *
 FROM BIT_DB.JanSales
 ;
