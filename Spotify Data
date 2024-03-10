@@ -4,6 +4,7 @@
 #This process allowed for a comprehensive examination of the dataset, paving the way for a more informed and data-driven approach in understanding Spotify's dynamics.
 
 
+
 CREATE TABLE BIT_DB.Spotifydata(
 id integer PRIMARY KEY,
 artist_name vachar NOT NULL,
