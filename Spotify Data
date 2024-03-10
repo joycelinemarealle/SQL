@@ -5,6 +5,7 @@
 
 
 
+
 CREATE TABLE BIT_DB.Spotifydata(
 id integer PRIMARY KEY,
 artist_name vachar NOT NULL,
