@@ -10,6 +10,7 @@ CREATE TABLE fortune_companies (
     avg_employee_tenure REAL
 );
 
+
 INSERT INTO fortune_companies (company_name, industry, revenue, employees, healthcare_benefits, paid_time_off_days, maternity_leave_weeks, avg_employee_tenure)
 VALUES
     ('Apple Inc.', 'Technology', 365.7, 147000, 1, 20, 12, 4.5),
