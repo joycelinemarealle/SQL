@@ -5,6 +5,7 @@ AND order_id <> 'Order ID'
 ;
 
 
+
 SELECT *
 FROM BIT_DB.JanSales
 ;
