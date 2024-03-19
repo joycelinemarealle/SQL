@@ -25,7 +25,7 @@ LIMIT 5
 /*Question 2
 Sales manager is assigning customer accounts to new sales representatives and needs to know how many orders have been placed by each customer*/
 
-SELECT c.CustomerID,c.CustomerName, COUNT(o.OrderID)
+SELECT c.CustomerID,c.CustomerName, COUNT(o.OrderID) as Number_of_Orders
 FROM ORDERS o
  INNER JOIN Customers c
     ON o.CustomerID = c.CustomerID
