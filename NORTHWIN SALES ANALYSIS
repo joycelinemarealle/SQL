@@ -1,12 +1,13 @@
 /*Which sale employees from NorthWin should receive bonuses*/
-SELECT e.EmployeeID, e.LastName, e.FirstName,o.OrderID, o.CustomerID, o.OrderDate,o.ShipperID,od.ProductID, od.Quantity, p.Price, p.SupplierID, p.CategoryID
+SELECT e.EmployeeID, e.LastName, e.FirstName,o.OrderID, o.CustomerID, o.OrderDate,o.ShipperID,od.ProductID, od.Quantity, p.Price, p.SupplierID, p.CategoryID, od.Quantity * p.Price as Revenue
 FROM EMPLOYEES e
 INNER JOIN ORDERS o
 ON e.EmployeeID = o.EmployeeID
 INNER JOIN ORDERDETAILS od
 ON o.OrderID = od.OrderID
 INNER JOIN Products p
-ON od.OrderID = p.Price
+ON od.ProductID = p.ProductID
+
 ;
 
 SELECT *
