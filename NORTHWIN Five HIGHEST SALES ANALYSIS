@@ -1,5 +1,6 @@
 
 /*Busines Problem and Solution
+Question 1
 Bonuses will be awared to those employees who are responsible for the five highest amount of orders.
 Solution -two reports
  A list of orders with five highest sales amount with names of three employees repsonsible
@@ -19,3 +20,13 @@ FROM EMPLOYEES e
 GROUP BY o.ORDERID
 ORDER BY SalesAmount DESC
 LIMIT 5
+
+
+/*Question 2
+Sales manager is assigning customer accounts to new sales representatives and needs to know how many orders have been placed by each customer*/
+SELECT c.CustomerID, COUNT(o.OrderID)
+FROM ORDERS o
+INNER JOIN Customers c
+ON o.CustomerID = c.CustomerID
+GROUP BY c.customerID
+ORDER BY COUNT(o.ORDERID) DESC
