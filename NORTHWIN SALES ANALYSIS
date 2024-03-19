@@ -1,4 +1,13 @@
-*From the NorthWin Sales data, identify which orders have the  highest sales amount and the 5 employees associated with these orders to receive bonuses*/
+
+/*Busines Problem and Solution
+Bonuses will be awared to those employees who are responsible for the five highest amount of orders.
+Solution -two reports
+ A list of orders with five highest sales amount with names of three employees repsonsible
+A list of the five employees with highest sales amounts */
+
+/*From the NorthWin Sales data, identify which orders have the  highest sales amount and the 5 employees associated with these orders to receive bonuses*/
+
+
 SELECT e.EmployeeID, e.LastName, e.FirstName,o.OrderID,od.ProductID,od.Quantity, p.Price, ROUND( SUM(od.Quantity* p.Price),2)as SalesAmount
 FROM EMPLOYEES e
   INNER JOIN ORDERS o
