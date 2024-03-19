@@ -1,5 +1,4 @@
-/*From the NorthWin Sales data, identify which orders have the  highest sales amount and the employees associated with these orders to receive bonuses*/
-
+*From the NorthWin Sales data, identify which orders have the  highest sales amount and the 5 employees associated with these orders to receive bonuses*/
 SELECT e.EmployeeID, e.LastName, e.FirstName,o.OrderID,od.ProductID,od.Quantity, p.Price, ROUND( SUM(od.Quantity* p.Price),2)as SalesAmount
 FROM EMPLOYEES e
   INNER JOIN ORDERS o
@@ -10,3 +9,4 @@ FROM EMPLOYEES e
      ON od.ProductID = p.ProductID
 GROUP BY o.ORDERID
 ORDER BY SalesAmount DESC
+LIMIT 5
