@@ -1,3 +1,5 @@
+/*Clean up the data by filtering missing order Ids which and Order ID */
+
 SELECT *
 FROM BIT_DB.CUSTOMERS
 WHERE length(order_id) = 6
