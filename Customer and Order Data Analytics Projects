@@ -42,7 +42,7 @@ WHERE length(orderID)=6
 AND orderID <> 'Order ID'
 ;
 
-SELECT*
+SELECT *
 FROM BIT_DB.customers
 WHERE length(order_id)=6
 AND order_id <> 'Order ID'
